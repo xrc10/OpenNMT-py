@@ -11,7 +11,6 @@ import torch
 
 def get_vocabs(dict_file):
     vocabs = torch.load(dict_file)
-
     enc_vocab, dec_vocab = None, None
 
     # the vocab object is a list of tuple (name, torchtext.Vocab)
@@ -21,7 +20,8 @@ def get_vocabs(dict_file):
             enc_vocab = vocab[1]
         if vocab[0] == 'tgt':
             dec_vocab = vocab[1]
-    assert None not in [enc_vocab, dec_vocab]
+
+    # assert None not in [enc_vocab, dec_vocab]
 
     print("From: %s" % dict_file)
     print("\t* source vocab: %d words" % len(enc_vocab))
